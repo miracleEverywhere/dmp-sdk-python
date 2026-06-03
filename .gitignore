@@ -1,0 +1,5 @@
+.idea
+venv
+test.py
+dist
+dmp_sdk_python.egg-info

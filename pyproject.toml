@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dmp-sdk-python"
+version = "3.1.4"
+description = "DMP Python SDK — 饥荒管理平台 Python SDK"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "miracleEverywhere"},
+]
+keywords = ["dmp", "饥荒管理平台", "don't starve together", "饥荒联机版", "管理平台"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.28",
+]
+
+[project.urls]
+Homepage = "https://github.com/miracleEverywhere/dst-management-platform-api"
+Repository = "https://github.com/miracleEverywhere/dst-management-platform-api"
+
+[tool.setuptools.packages.find]
+where = ["."]
