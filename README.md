@@ -40,16 +40,16 @@ print(cpu_usage)
 
 ## 模块一览
 
-| 属性 | 简写 | 模块 | 说明 |
-|---|---|---|---|
-| `client.user` | `client.u` | 用户管理 | 注册、登录、用户 CRUD、菜单 |
-| `client.dashboard` | `client.db` | 面板 | 游戏控制、信息、连接码、大厅检测 |
-| `client.room` | `client.rm` | 房间管理 | 房间 CRUD、激活/停用、上传存档 |
-| `client.mod` | `client.md` | 模组管理 | 搜索、下载、启用/禁用、配置 |
-| `client.player` | `client.pl` | 玩家管理 | 在线玩家、名单、统计、聊天日志 |
-| `client.tools` | `client.tl` | 工具 | 备份、公告、地图、令牌、快照 |
-| `client.logs` | `client.lg` | 日志管理 | 日志查看、历史、清理、下载 |
-| `client.platform` | `client.pt` | 平台管理 | 系统概览、版本、WebSSH、全局设置 |
+| 属性 | 简写 | 模块        | 说明 |
+|---|---|-----------|---|
+| `client.user` | `client.u` | 用户管理      | 注册、登录、用户CRUD、菜单 |
+| `client.dashboard` | `client.db` | dashboard | 游戏控制、信息、连接码、大厅检测 |
+| `client.room` | `client.rm` | 房间管理      | 房间CRUD、激活/停用、上传存档 |
+| `client.mod` | `client.md` | 模组管理      | 搜索、下载、启用/禁用、配置 |
+| `client.player` | `client.pl` | 玩家管理      | 在线玩家、名单、统计、聊天日志 |
+| `client.tools` | `client.tl` | 工具        | 备份、公告、地图、令牌、快照 |
+| `client.logs` | `client.lg` | 日志管理      | 日志查看、历史、清理、下载 |
+| `client.platform` | `client.pt` | 平台管理      | 系统概览、版本、全局设置 |
 
 ## 特性
 
