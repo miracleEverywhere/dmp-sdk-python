@@ -2,6 +2,13 @@
 
 饥荒管理平台 (DST Management Platform) Python SDK。
 
+![PyPI - Downloads](https://img.shields.io/pypi/dm/dmp-sdk-python)
+![PyPI - Version](https://img.shields.io/pypi/v/dmp-sdk-python)
+![PyPI - License](https://img.shields.io/pypi/l/dmp-sdk-python)
+![PyPI - Status](https://img.shields.io/pypi/status/dmp-sdk-python)
+![PyPI - Format](https://img.shields.io/pypi/format/dmp-sdk-python)
+
+
 ## 安装
 
 ```bash
