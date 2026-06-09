@@ -27,7 +27,6 @@ dmp_sdk_python/
 ├── client.py            # DMPClient — session, HTTP, module wiring
 ├── error.py             # DMPError exception (code + message)
 ├── paginated.py         # PaginatedResult (rows, page, pageSize, total)
-├── utils.py             # sha512_hex() for password hashing
 └── modules/
     ├── user.py          # UserModule      (/v3/user/*)
     ├── dashboard.py     # DashboardModule (/v3/dashboard/*)
@@ -69,6 +68,6 @@ Wraps `{"rows": [...], "page": int, "pageSize": int, "total": int}`. Supports `l
 
 `DMPError(code, message)` — raised when API returns `code != 200`. Both `code` and `message` are accessible as attributes.
 
-### Password hashing (`utils.py`)
+### Password handling
 
-`sha512_hex(text)` — used by `UserModule` to hash passwords before sending. Matches the Go backend's hashing.
+Passwords are sent in plain text; the backend handles bcrypt hashing server-side.

@@ -2,30 +2,12 @@
 
 from typing import List
 
-from ..utils import sha512_hex
-
 
 class UserModule:
     """用户管理模块"""
 
     def __init__(self, client):
         self._c = client
-
-    def register_check(self) -> bool:
-        """检查是否允许注册（尚无用户时允许）。
-
-        GET /v3/user/register
-        """
-        return self._c._request("GET", "/user/register")
-
-    def register(self, username: str, password: str, **kwargs) -> None:
-        """注册首个用户（仅当系统中无用户时可用）。
-
-        POST /v3/user/register
-        密码发送前会做 SHA-512 哈希。
-        """
-        body = {"username": username, "password": sha512_hex(password), **kwargs}
-        return self._c._request("POST", "/user/register", json_data=body)
 
     def get_base(self) -> dict:
         """获取当前用户基本信息。
@@ -88,11 +70,11 @@ class UserModule:
         """修改个人信息（用户名不可更改）。
 
         PUT /v3/user/myself
-        密码发送前会做 SHA-512 哈希。
+        密码以明文发送，由服务端进行 bcrypt 哈希。
         """
         body = {}
         if password is not None:
-            body["password"] = sha512_hex(password)
+            body["password"] = password
         if nickname is not None:
             body["nickname"] = nickname
         if avatar is not None:

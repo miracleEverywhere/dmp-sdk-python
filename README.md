@@ -15,6 +15,8 @@
 pip install dmp-sdk-python
 ```
 
+> **注意：SDK 版本必须与服务端版本保持一致。** 接口定义随版本同步更新，版本不匹配可能导致请求失败。
+
 ## 快速开始
 
 ```python
@@ -49,7 +51,7 @@ print(cpu_usage)
 
 | 属性 | 简写 | 模块        | 说明 |
 |---|---|-----------|---|
-| `client.user` | `client.u` | 用户管理      | 注册、登录、用户CRUD、菜单 |
+| `client.user` | `client.u` | 用户管理      | 用户CRUD、个人信息、菜单 |
 | `client.dashboard` | `client.db` | dashboard | 游戏控制、信息、连接码、大厅检测 |
 | `client.room` | `client.rm` | 房间管理      | 房间CRUD、激活/停用、上传存档 |
 | `client.mod` | `client.md` | 模组管理      | 搜索、下载、启用/禁用、配置 |
