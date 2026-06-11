@@ -117,6 +117,25 @@ class PlayerModule:
             "GET", "/player/statistics/player_count", params=params
         )
 
+    def player_count_v2(
+        self, roomID: int, time_range: int = None
+    ) -> List[dict]:
+        """获取玩家数量快照（v2，结构精简）。
+
+        GET /v3/player/statistics/player_count/v2
+
+        参数:
+            roomID: 房间 ID
+            time_range: 时间范围（秒），可选，默认 86400（24h）
+        返回 [{"count": int, "timestamp": int64}, ...]
+        """
+        params = {"roomID": roomID}
+        if time_range is not None:
+            params["timeRange"] = time_range
+        return self._c._request(
+            "GET", "/player/statistics/player_count/v2", params=params
+        )
+
     def chat(
         self, roomID: int, lines: int = 50, need_time: bool = False
     ) -> Any:
