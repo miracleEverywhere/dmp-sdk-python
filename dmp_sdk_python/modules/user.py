@@ -39,6 +39,15 @@ class UserModule:
             "DELETE", "/user/base", json_data={"username": username}
         )
 
+    def revoke_user(self, username: str) -> None:
+        """撤销指定用户的所有 token，使其全部登出（仅管理员）。
+
+        POST /v3/user/revoke
+        """
+        return self._c._request(
+            "POST", "/user/revoke", json_data={"username": username}
+        )
+
     def get_menu(self) -> List[dict]:
         """获取当前用户侧边栏菜单。
 
