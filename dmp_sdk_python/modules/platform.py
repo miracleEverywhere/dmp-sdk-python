@@ -67,6 +67,7 @@ class PlatformModule:
             autoUpdateEnable: bool      自动更新开关
             autoUpdateSetting: str      自动更新时间设置
             autoUpdateRestart: bool     自动更新后重启
+            webhookSetting: str         全局 Webhook 配置（JSON 字符串）
         """
         return self._c._request(
             "POST", "/platform/global_settings", json_data=settings
@@ -93,3 +94,22 @@ class PlatformModule:
             "/platform/screen/kill",
             json_data={"screenName": screen_name},
         )
+
+    def webhook_test(self, url: str, secret: str = "") -> None:
+        """测试 webhook 连通性（全局级，仅管理员）。
+
+        POST /v3/platform/webhook/test
+        向指定 URL 发送测试事件，验证 webhook 配置是否正确。
+        """
+        return self._c._request(
+            "POST", "/platform/webhook/test",
+            json_data={"url": url, "secret": secret},
+        )
+
+    def webhook_events(self) -> List[dict]:
+        """获取 webhook 可选事件类型列表。
+
+        GET /v3/platform/webhook/events
+        返回 [{"type": str, "zh": str, "en": str}, ...]
+        """
+        return self._c._request("GET", "/platform/webhook/events")

@@ -19,6 +19,7 @@ class RoomModule:
 
         POST /v3/room
 
+        room_setting_data 可包含 webhookSetting 字段（JSON 字符串）。
         返回创建的 Room 模型。
         """
         body = {
@@ -37,6 +38,8 @@ class RoomModule:
         """更新已有房间。
 
         PUT /v3/room
+
+        room_setting_data 可包含 webhookSetting 字段（JSON 字符串）。
         """
         body = {
             "roomData": room_data,
@@ -143,3 +146,22 @@ class RoomModule:
         return self._c._request(
             "DELETE", "/room", json_data={"roomID": roomID}
         )
+
+    def webhook_test(self, url: str, secret: str = "") -> None:
+        """测试 webhook 连通性（房间级）。
+
+        POST /v3/room/webhook/test
+        向指定 URL 发送测试事件，验证 webhook 配置是否正确。
+        """
+        return self._c._request(
+            "POST", "/room/webhook/test",
+            json_data={"url": url, "secret": secret},
+        )
+
+    def webhook_events(self) -> List[dict]:
+        """获取 webhook 可选事件类型列表。
+
+        GET /v3/room/webhook/events
+        返回 [{"type": str, "zh": str, "en": str}, ...]
+        """
+        return self._c._request("GET", "/room/webhook/events")
